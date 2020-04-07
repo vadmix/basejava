@@ -19,8 +19,8 @@ public class ArrayStorage {
 				return;
 			}
 		}
+		storage[size] = resume;
 		size++;
-		storage[size - 1] = resume;
 	}
 
 	Resume get(String uuid) {
@@ -33,13 +33,13 @@ public class ArrayStorage {
 	}
 
 	void delete(String uuid) {
-		int deleted = 10000;
+		int deleted = -1;
 		for (int r = 0; r < size; r++) {
 			if (storage[r].uuid == uuid) {
 				deleted = r;
 			}
 		}
-		if (!(deleted == 10000)) {
+		if (!(deleted == -1)) {
 			for (int r = deleted; r < size - 1; r++) {
 				storage[r] = storage[r + 1];
 			}
